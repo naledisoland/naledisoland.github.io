@@ -1,0 +1,21 @@
+ul li {
+  background-color: blue;
+}
+h1 {
+  color: red;
+}
+td {
+  background-color: lightblue;
+  padding: 3px;
+  border: 2px solid darkblue;
+}
+table {
+  border-collapse: collapse;
+}
+th {
+  text-align:left;
+  border: 2px solid black;
+}
+thead>tr {
+  background-color: lightpink;
+}
