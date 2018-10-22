@@ -1,0 +1,36 @@
+body{
+  text-align: center;
+  max-width: 960px;
+  margin:auto;
+  margin-top: 10px;
+  }
+  #innhold{
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-gap: 10px;
+    /*grid-auto-rows: minmax(200px, auto);*/
+  }
+  #innhold div{
+    padding:30px;
+  }
+  .{
+    grid-column: 2 / 18;
+  }
+  #to{
+    grid-column: 18;
+  }
+  #fem{
+    grid-column: 13;
+  }
+  #tretten{
+    grid-column: 13;
+  }
+  .Metall{
+    background-color: lightblue;
+  }
+  .Ikke-metall{
+    background-color: pink;
+  }
+  .Halv-metall{
+    background-color: lightgreen;
+  }
