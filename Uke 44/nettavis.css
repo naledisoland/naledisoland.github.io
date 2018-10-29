@@ -1,0 +1,74 @@
+selektor{
+  display: grid;
+}
+body{
+  margin: 150px;
+  margin-top:10px;
+}
+nav{
+  grid-template-columns: auto repeat(3, 1fr);
+  background-color: black;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+nav a{
+  grid-template-columns: auto repeat(3, 1fr);
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+nav .hjem{
+  background-color: orangered;
+  padding: 15px;
+  font-size: 30px;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+  grid-auto-rows: minmax(60px,auto);
+  text-align: center;
+}
+main a>h1{
+  font-size: 30px;
+}
+a{
+  background-color: lightgrey;
+}
+.to img{
+  height: auto;
+  width: 100%;
+}
+.tre img{
+  height: auto;
+  width: 100%;
+}
+.fire img{
+  height: auto;
+  width: 100%;
+}
+.fem img{
+  height: auto;
+  width: 100%;
+}
+.en{
+  grid-column: span 3;
+}
+.to{
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.tre{
+  grid-row: span 1;
+}
+.fire{
+  grid-row: span 1;
+}
+.fem{
+  grid-column: span 3;
+  grid-row: span 3;
+}
