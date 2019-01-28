@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Database</title>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD_p3iLSGCMP5KktJ30V_dpcIZ_mOnYE68",
+        authDomain: "databaser-uke-4.firebaseapp.com",
+        databaseURL: "https://databaser-uke-4.firebaseio.com",
+        projectId: "databaser-uke-4",
+        storageBucket: "",
+        messagingSenderId: "221813018524"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script>
+     const db = firebase.database();
+     const kontaktliste = db.ref("kontaktliste")
+     kontaktliste.push({
+       navn: "Frida Johansen"
+     });
+     kontaktliste.push(
+     // SKRIV INN JSON OBJEKTET HER
+     )
+   </script>
+
+  </body>
+</html>
