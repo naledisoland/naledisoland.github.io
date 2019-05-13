@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bakehuset.css">
+    <title>Bakehuset</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB-_-tocNya2GcBOq9ysc4NzfsDMWGBh6E",
+        authDomain: "nettbutikk-6b5af.firebaseapp.com",
+        databaseURL: "https://nettbutikk-6b5af.firebaseio.com",
+        projectId: "nettbutikk-6b5af",
+        storageBucket: "nettbutikk-6b5af.appspot.com",
+        messagingSenderId: "311198909427"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="fleksDiv">
+        <img src="Bilder/logo.png" alt="">
+      </div>
+      <nav>
+        <a href="bakehuset.html">Våre produkter</a>
+        <a href="om-oss.html">Om oss</a>
+        <a href="handlekurv.html">Handlekurv</a>
+      </nav>
+
+      <button onclick="visLavtilHøy()" name="button">Sorter etter pris</button>
+      <button onclick="visKaker()" name="button">Kaker</button>
+      <button onclick="visSmåbakst()" name="button">Småbakst</button>
+      <button onclick="visSmådesserter()" name="button">Små desserter</button>
+
+    </header>
+
+    <main>
+      <section id="innhold">
+
+      </section>
+
+      </main>
+
+      <footer>
+        <h2>Nyttig informasjon</h2>
+        <p>Tlf: 66 91 58 70</p>
+        <p>E-mail: bakehuset@gmail.com</p>
+        <p>Trenger du å komme i kontakt med oss? Ta kontakt om det er noe du lurer på!</p>
+      </footer>
+
+      <script>
+          const innhold = document.querySelector("#innhold");
+          const main = document.querySelector("main");
+          const db = firebase.database();
+          const kaker = db.ref("produkter/kaker")
+          const småbakst = db.ref("produkter/småbakst")
+          const smådesserter = db.ref("produkter/små desserter")
+
+          function visProdukter(snapshot){
+              let produkter = snapshot.val();
+              let key = snapshot.key;
+              console.log(produkter)
+
+              innhold.innerHTML +=`
+                  <article class="Produkter">
+                    <h1>${produkter.navn}</h1>
+                    <img src="Bilder/${produkter.bilde}" alt="">
+                    <p>Pris: ${produkter.pris}<p>
+                    <a href="detaljer.html?id=${key}">Detaljer</a>
+                  </article>
+              `
+          }
+
+
+          function visAlle(){
+            innhold.innerHTML = "";
+            kaker.on("child_added",visProdukter);
+            småbakst.on("child_added",visProdukter);
+            smådesserter.on("child_added",visProdukter);
+          }
+          visAlle();
+
+
+          function visLavtilHøy(){
+            innhold.innerHTML = "";
+            kaker.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
+            småbakst.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
+            smådesserter.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
+          }
+
+          function visKaker(){
+            innhold.innerHTML = "";
+            kaker.orderByChild("produkter/kaker").on("child_added",visProdukter);
+          }
+
+          function visSmåbakst(){
+            innhold.innerHTML = "";
+            småbakst.orderByChild("produkter/småbakst").on("child_added",visProdukter);
+          }
+
+          function visSmådesserter(){
+            innhold.innerHTML = "";
+            smådesserter.orderByChild("produkter/smådesserter").on("child_added",visProdukter);
+          }
+
+
+        </script>
+
+    </body>
+  </html>

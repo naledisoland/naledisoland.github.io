@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="handlekurv.css">
+    <title>Bakehuset</title>
+
+  <body>
+    <header>
+      <div class="fleksDiv">
+        <img src="Bilder/logo.png" alt="">
+      </div>
+      <nav>
+        <a href="bakehuset.html">Våre produkter</a>
+        <a href="om-oss.html">Om oss</a>
+        <a href="handlekurv.html">Handlekurv</a>
+      </nav>
+    </header>
+    <main>
+      <section id="innhold">
+        <div class="en">
+          <h1>Handlekurv</h1>
+        </div>
+        <div class="to"></div>
+        <div class="tre"></div>
+        <div class="fire">
+          <form action="bestilling.html">
+              <br><label>Navn</label><br>
+              <input type="text" name="navn"placeholder="Ola Nordmann"required>
+              <br><label>E-post</label><br>
+              <input type="text" name="e-mail"placeholder="nordmann@gmail.com"required>
+              <br><label>Mobil</label><br>
+              <input type="text" name="mobil"placeholder="97675430"required>
+        </div>
+        <div class="fem">
+          <br><label>Fylke</label><br>
+          <select name="velgFylke">
+            <option value="Overskrift">Velg Fylke</option>
+            <option value="Akershus">Akershus</option>
+            <option value="Buskerud">Buskerud</option>
+            <option value="Oslo">Oslo</option>
+            <option value="Vestfold">Vestfold</option>
+          </select>
+          <br><label>Butikk</label><br>
+          <select name="velgButikk">
+            <option value="Overskrift">Velg Butikk</option>
+            <option value="Foyn Kjøpesenter">Foyn Kjøpesenter</option>
+            <option value="Gulskogen senter">Gulskogen Senter</option>
+            <option value="Oslo sentrum">Oslo City</option>
+            <option value="Sandvika storsenter">Sandvika Storsenter</option>
+          </select>
+          <br><label>Hentedato</label><br>
+            <input type="date" name="dato"placeholder="dd.mmm.åååå"required>
+            <br><button type="sumbit" name="button">Send bestilling</button>
+        </div>
+        <div class="seks"></div>
+      </main>

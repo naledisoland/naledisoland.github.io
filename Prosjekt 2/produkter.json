@@ -1,0 +1,196 @@
+{
+ "produkter" : {
+    "kaker" : {
+      "kake001" : {
+        "navn" : "Marsipankake",
+        "type" : "Krem",
+        "pris" : 479,
+        "bilde" : "marsipan.jpeg"
+      },
+      "kake002" : {
+        "navn" : "Bløtkake",
+        "type" : "Krem",
+        "pris" : 480,
+        "bilde" : "bløtkake.jpeg"
+      },
+      "kake003" : {
+        "navn" : "Sjokoladekake",
+        "type" : "Sjokolade",
+        "pris" : 420,
+        "bilde" : "sjokolade.jpeg"
+      },
+      "kake004" : {
+        "navn" : "Vaniljedrøm",
+        "type" : "Vanilje",
+        "pris" : 400,
+        "bilde" : "vaniljedrøm.jpeg"
+      },
+	    "kake005" : {
+        "navn" : "Salt karamellkake",
+        "type" : "Karamell",
+        "pris" : 490,
+        "bilde" : "karamell.jpeg"
+      },
+      "kake006" : {
+        "navn" : "Ostekake",
+        "type" : "Krem",
+        "pris" : 300,
+        "bilde" : "ostekake.jpeg"
+      },
+      "kake007" : {
+        "navn" : "Bamsekake",
+        "type" : "Sjokolade",
+        "pris" : 350,
+        "bilde" : "bamsekake.jpeg"
+      },
+      "kake008" : {
+        "navn" : "Oreokake",
+        "type" : "Krem",
+        "pris" : 380,
+        "bilde" : "oreokake.jpeg"
+      },
+ 	    "kake009" : {
+        "navn" : "Wienerkringle",
+        "type" : "Gjærbakst",
+        "pris" : 360,
+        "bilde" : "wienerkringle.jpeg"
+        }
+      },
+    "småbakst" : {
+      "småbakst010" : {
+        "navn" : "Skolebrød",
+        "type" : "Gjærbakst",
+        "pris" : 25,
+        "bilde" : "skolebrød.jpeg"
+      },
+      "småbakst011" : {
+        "navn" : "Sommerbolle",
+        "type" : "Gjærbakst",
+        "pris" : 25,
+        "bilde" : "sommerbolle.png"
+      },
+      "småbakst012" : {
+        "navn" : "Belgisk vaffel",
+        "type" : "Gjærbakst",
+        "pris" : 35,
+        "bilde" : "vaffel.jpeg"
+      },
+      "småbakst013" : {
+        "navn" : "Skillingsbolle",
+        "type" : "Gjærbakst",
+        "pris" : 30,
+        "bilde" : "skillingsbolle.jpeg"
+      },
+      "småbakst014" : {
+        "navn" : "Sjokoladedonut",
+        "type" : "Gjærbakst",
+        "pris" : 25,
+        "bilde" : "sjokoladedonut.jpeg"
+      },
+      "småbakst015" : {
+        "navn" : "Donut sjokoladeball",
+        "type" : "Gjærbakst",
+        "pris" : 15,
+        "bilde" : "donutsjokoball.jpeg"
+      },
+      "småbakst016" : {
+        "navn" : "Donut vaniljeball",
+        "type" : "Gjærbakst",
+        "pris" : 15,
+        "bilde" : "donutvaniljeball.jpeg"
+      },
+      "småbakst017" : {
+        "navn" : "Berlinerbolle vanilje",
+        "type" : "Gjærbakst",
+        "pris" : 20,
+        "bilde" : "vaniljeberliner.jpeg"
+      },
+      "småbakst018" : {
+        "navn" : "Berlinerbolle bringebær",
+        "type" : "Gjærbakst",
+        "pris" : 20,
+        "bilde" : "bringebærberliner.jpeg"
+      },
+      "småbakst019" : {
+        "navn" : "Croissant",
+        "type" : "Gjærbakst",
+        "pris" : 15,
+        "bilde" : "croissant.jpeg"
+      },
+      "småbakst020" : {
+        "navn" : "Wienerbrød",
+        "type" : "Gjærbakst",
+        "pris" : 14,
+        "bilde" : "wienerbrød.jpeg"
+      },
+      "småbakst021" : {
+        "navn" : "Blåbærmuffins",
+        "type" : "Gjærbakst",
+        "pris" : 18,
+        "bilde" : "muffins.jpeg"
+        }
+      },
+    "små desserter" : {
+      "desserter022" : {
+        "navn" : "Sjokolademousse",
+        "type" : "Sjokolade",
+        "pris" : 25,
+        "bilde" : "mousse.jpeg"
+      },
+      "desserter023" : {
+        "navn" : "Makroner",
+        "type" : "Mandel",
+        "pris" : 22,
+        "bilde" : "makroner.jpeg"
+      },
+      "desserter023" : {
+        "navn" : "Panna Cotta",
+        "type" : "Vanilje",
+        "pris" : 30,
+        "bilde" : "pannacotta.jpeg"
+      },
+      "desserter024" : {
+        "navn" : "Konfekt",
+        "type" : "Sjokolade",
+        "pris" : 12,
+        "bilde" : "konfekt.jpeg"
+      },
+      "desserter025" : {
+        "navn" : "Creme Brulee",
+        "type" : "Karamell",
+        "pris" : 30,
+        "bilde" : "cremebrulee.jpeg"
+      },
+      "desserter026" : {
+        "navn" : "Tiramisu",
+        "type" : "Kaffe",
+        "pris" : 30,
+        "bilde" : "tiramisu.jpeg"
+      },
+      "desserter027" : {
+        "navn" : "Sitronfromasj",
+        "type" : "Sitron",
+        "pris" : 25,
+        "bilde" : "sitronfromasj.jpeg"
+      },
+      "desserter028" : {
+        "navn" : "Fruktterte",
+        "type" : "Frukt",
+        "pris" : 28,
+        "bilde" : "fruktterte.jpeg"
+      },
+      "desserter029" : {
+        "navn" : "Sjokaldefondant",
+        "type" : "Sjokolade",
+        "pris" : 20,
+        "bilde" : "sjokoladefondant.jpeg"
+      },
+      "desserter030" : {
+        "navn" : "Pistasj is",
+        "type" : "Pistasj",
+        "pris" : 25,
+        "bilde" : "pistasjis.jpeg"
+      }
+    }
+  }
+}

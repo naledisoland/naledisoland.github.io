@@ -1,0 +1,58 @@
+selektor{
+  display: grid;
+}
+body{
+  margin: 150px;
+  margin-top:10px;
+  margin-bottom: 15px;
+}
+nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: black;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+nav a{
+  grid-template-columns: auto repeat(4, 1fr);
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+#innhold{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+  text-align: left;
+  background-image: url("marmor.jpg");
+}
+img:hover{
+  transform: scale(1.3)
+}
+img:active{
+  transform: translateX(5px);
+}
+img{
+  padding-left: 35px;
+  padding-right: 10px;
+  transition: 1s;
+}
+.syv p, h1{
+  font-family: monospace;
+  font-size: 30px;
+  margin-left: 60px;
+}
+.en{
+  grid-column: span 1;
+}
+footer{
+  margin-top: 10px;
+  border: solid 0.5px;
+  text-align: center;
+  font-family: monospace;
+  background-color: whitesmoke;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="detaljer.css">
+    <title></title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB-_-tocNya2GcBOq9ysc4NzfsDMWGBh6E",
+        authDomain: "nettbutikk-6b5af.firebaseapp.com",
+        databaseURL: "https://nettbutikk-6b5af.firebaseio.com",
+        projectId: "nettbutikk-6b5af",
+        storageBucket: "nettbutikk-6b5af.appspot.com",
+        messagingSenderId: "311198909427"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="fleksDiv">
+        <img src="Bilder/logo.png" alt="">
+      </div>
+      <nav>
+        <a href="bakehuset.html">Våre produkter</a>
+        <a href="om-oss.html">Om oss</a>
+        <a href="handlekurv.html">Handlekurv</a>
+      </nav>
+    </header>
+
+    </header>
+
+    <main>
+      <section id="innhold">
+        <div class="en">
+          <h1>Komponer din kake</h1>
+          <form action="handlekurv.html">
+            <div class="to">
+            <br><label>Velg størrelse</label><br>
+              <input type="radio" name="Størrelse" value="15"><span>15</span>
+              <input type="radio" name="Størrelse" value="30"><span>30</span>
+              <input type="radio" name="Størrelse" value="60"><span>60</span>
+            <br>
+            <br><label>Velg bunn</label><br>
+              <input type="radio" name="Bunn" value="Sukkerbunn"><span>Sukkerbunn</span>
+              <input type="radio" name="Bunn" value="Sjokoladebunn"><span>Sjokoladebunn</span>
+              <input type="radio" name="Bunn" value="Mandebunn"><span>Mandelbunn</span>
+            <br>
+            <br><label>Velg fyll</label><br>
+              <input type="radio" name="Fyll" value="Fløtekrem"><span>Fløtekrem</span>
+              <input type="radio" name="Fyll" value="Vaniljekem"><span>Vaniljekrem</span>
+              <input type="radio" name="Fyll" value="Sjokoladekrem"><span>Sjokoladekrem</span>
+            </div>
+            </select><br>
+              <a href="handlekurv.html"><button type="sumbit">Bestill</button></a>
+            </form>
+        </div>
+        <div class="tre">
+          <h1>Næringsinnhold</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Næringsinnhold pr.100 G</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Energi kj/kcal</td>
+                <td>1564/376</td>
+              <tr>
+                <td>Fett g</td>
+                <td>26,1</td>
+              <tr>
+                <td>Mettede fettsyrer g</td>
+                <td>11,9</td>
+              <tr>
+                <td>Karbohydrater g</td>
+                <td>29</td>
+              <tr>
+                <td>Sukkerarter g</td>
+                <td>24,5</td>
+              <tr>
+                <td>Kostfiber</td>
+                <td>1,3</td>
+              <tr>
+                <td>Protein g</td>
+                <td>5,6</td>
+              <tr>
+                <td>Salt g</td>
+                <td>0,1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fire"></div>
+    </main>
+
+
+    <script>
+    const main = document.querySelector("innhold");
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+
+    const db = firebase.database();
+    const kaker = db.ref("produkter/kaker" + id);
+    const småbakst = db.ref("produkter/småbakst" + id);
+
+    function visProdukter(snapshot){
+
+        console.log(snapshot.val());
+        let produkter = snapshot.val();
+        let key = snapshot.key;
+
+
+        innhold.innerHTML +=`
+            <article class="Produkter">
+              <h1>${produkter.navn}</h1>
+              <img src="Bilder/${produkter.bilde}" alt="">
+              <p>Pris: ${produkter.pris}<p>
+              <p>${produkter.type}<p>
+            </article>
+        `
+    }
+
+    kaker.on("value",visKaker);
+    småbakst.on("value",visSmåbakst)
+
+
+    </script>
+
+  </body>
+</html>

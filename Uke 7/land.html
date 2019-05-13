@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <button onclick="button" name="button">Land</button>
+      </nav>
+    </header>
+
+    <main>
+
+
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDVJnRqpVkvYHEnSnLuI67I_2CVgpzuWsg",
+        authDomain: "uke-7-ecef6.firebaseapp.com",
+        databaseURL: "https://uke-7-ecef6.firebaseio.com",
+        projectId: "uke-7-ecef6",
+        storageBucket: "",
+        messagingSenderId: "684333201165"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script>
+      const db = firebase.database();
+      const land = db.ref("country");
+
+      function lagHtml(snapshot) {
+          let vare = snapshot.val();
+          main.innerHTML += `
+              <article>
+                  <h1>${land.countryName}</h1>
+                  <p>${land.continentName}</p>
+              </article>
+          `;
+      }
+
+
+      land.on("child_added",lagHtml);
+
+      function visLand{
+        land
+          .orderByChild("countryName")
+          .startAt(B)
+          .endAt(M)
+          .on("child_added",lagHtml);
+      }
+    </script>
+
+
+  </body>
+</html>

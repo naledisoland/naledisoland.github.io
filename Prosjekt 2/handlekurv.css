@@ -1,0 +1,87 @@
+selektor{
+  display: grid;
+}
+body{
+  margin: 150px;
+  margin-top:10px;
+  margin-bottom: 15px;
+  background-image: url("Bilder/bakgrunn.jpg");
+}
+nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: lightgrey;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  border: solid 1px;
+}
+a:hover{
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+nav a{
+  text-decoration: none;
+  color: black;
+  font-family: serif;
+}
+#innhold{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+  text-align: left;
+}
+.fleksDiv{
+  display: flex;
+  justify-content: center;
+}
+button{
+  font-size: 20px;
+  margin: 15px;
+  margin-left: 0px;
+}
+button:hover{
+  background-color: #20B2AA;
+}
+select{
+  font-size: 23px;
+}
+div{
+  font-size: 25px;
+}
+input{
+  font-size: 25px;
+}
+main > section > div > img{
+  max-width: 100%;
+}
+
+@media (max-width: 1600px) {
+  #innhold{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  nav{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  #innhold{
+    grid-template-columns: 1fr 1fr;
+  }
+  nav{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  #innhold{
+    grid-template-columns: 1fr;
+  }
+  nav{
+    grid-template-columns: 1fr;
+  }
+}
