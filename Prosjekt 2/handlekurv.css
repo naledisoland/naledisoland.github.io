@@ -44,7 +44,8 @@ button{
   margin-left: 0px;
 }
 button:hover{
-  background-color: #20B2AA;
+  background-color: #204060;
+  color: white;
 }
 select{
   font-size: 23px;
