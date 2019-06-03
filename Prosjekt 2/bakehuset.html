@@ -40,7 +40,7 @@
     </header>
 
     <main>
-      <h2>VÅRE PRODUKTER</h2>
+      <h2 id="tittel">VÅRE PRODUKTER</h2>
 
       <section id="innhold">
 
@@ -57,11 +57,33 @@
 
       <script>
           const innhold = document.querySelector("#innhold");
+          const tittel = document.querySelector("#tittel");
           const main = document.querySelector("main");
           const db = firebase.database();
           const kaker = db.ref("produkter/kaker")
           const småbakst = db.ref("produkter/småbakst")
           const smådesserter = db.ref("produkter/små desserter")
+
+          var url = new URL(window.location.href);
+          var kategori = url.searchParams.get("kategori");
+
+
+          switch (kategori) {
+            case "kaker":
+              visKaker();
+              break;
+
+            case "småbakst":
+              visSmåbakst();
+              break;
+
+            case "smådesserter":
+              visSmådesserter();
+              break;
+
+            default:
+              visAlle();
+          }
 
           function visProdukter(snapshot){
               let produkter = snapshot.val();
@@ -73,6 +95,7 @@
                     <h1>${produkter.navn}</h1>
                     <img src="Bilder/${produkter.bilde}" alt="">
                     <p>Pris: ${produkter.pris}<p>
+                    <p>Type: ${produkter.type}<p> 
                     <a href="detaljer.html?id=${key}">Detaljer</a>
                   </article>
               `
@@ -85,11 +108,11 @@
             småbakst.on("child_added",visProdukter);
             smådesserter.on("child_added",visProdukter);
           }
-          visAlle();
 
 
           function visLavtilHøy(){
             innhold.innerHTML = "";
+            tittel.innerText = "VÅRE PRODUKTER"
             kaker.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
             småbakst.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
             smådesserter.orderByChild("pris").startAt(0).endAt(500).on("child_added",visProdukter);
@@ -97,16 +120,19 @@
 
           function visKaker(){
             innhold.innerHTML = "";
+            tittel.innerText = "KAKER"
             kaker.orderByChild("produkter/kaker").on("child_added",visProdukter);
           }
 
           function visSmåbakst(){
             innhold.innerHTML = "";
+            tittel.innerText = "SMÅBAKST"
             småbakst.orderByChild("produkter/småbakst").on("child_added",visProdukter);
           }
 
           function visSmådesserter(){
             innhold.innerHTML = "";
+            tittel.innerText = "SMÅ DESSERTER"
             smådesserter.orderByChild("produkter/smådesserter").on("child_added",visProdukter);
           }
 

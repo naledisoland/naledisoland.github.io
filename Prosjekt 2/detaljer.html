@@ -110,6 +110,7 @@
     const db = firebase.database();
     const kaker = db.ref("produkter/kaker" + id);
     const småbakst = db.ref("produkter/småbakst" + id);
+    const smådesserter = db.ref("produkter/små desserter" + id);
 
     function visProdukter(snapshot){
 
@@ -124,12 +125,14 @@
               <img src="Bilder/${produkter.bilde}" alt="">
               <p>Pris: ${produkter.pris}<p>
               <p>${produkter.type}<p>
+
             </article>
         `
     }
 
     kaker.on("value",visKaker);
     småbakst.on("value",visSmåbakst)
+    smådesserter.on("value",visSmådesserter)
 
 
     </script>

@@ -6,16 +6,21 @@ body{
   margin-top: 10px;
   margin-right: 80px;
   margin-left: 80px;
-  background-color: #778899;
+  margin-bottom: 80px;
+  background-color: black;
 }
 h1{
-  font-family: sans-serif;
+  font-family: monospace;
+  font-size: 40px;
   text-align: center;
 }
 header{
-  background-color: black;
   color: white;
-  padding: 18px;
+  padding: 5px;
+  margin-right: -105px;
+  margin-left: -100px;
+  border: solid;
+  border-color: white;
   text-decoration: line-through;
 }
 main{
@@ -34,4 +39,16 @@ a{
 img{
   width: 100%;
   margin-top: 20px;
+}
+p{
+  color: white;
+}
+footer{
+  margin-top: 80px;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+  border: solid;
+  border-color: white;
+  background-color: black;
 }

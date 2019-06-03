@@ -27,6 +27,9 @@ nav a{
   color: black;
   font-family: serif;
 }
+.en{
+  margin-bottom: -30px;
+}
 #innhold{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
