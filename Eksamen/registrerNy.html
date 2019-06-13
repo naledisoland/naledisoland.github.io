@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="registrerNy.css">
+    <title>Registrering av personopplysninger</title>
+    <!--Kobler til firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA3jJGNvrm6fIdF6Efu9zGkgmRXtpqcyX0",
+        authDomain: "uke-9-74865.firebaseapp.com",
+        databaseURL: "https://uke-9-74865.firebaseio.com",
+        projectId: "uke-9-74865",
+        storageBucket: "uke-9-74865.appspot.com",
+        messagingSenderId: "1018680974370"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 class="overskrift">BLI KJENT FORUM</h1>
+        <nav>
+          <a href="hovedside.html">Medlemmer</a>
+        </nav>
+      </header>
+
+      <h1>FYLL INN SKJEMA FOR Å REGISTRERE</h1>
+      <section class="registrer">
+        <form id="skjema">
+          <input id="Telefonnummer" type="text" required placeholder="Telefonnummer">
+          <br>
+          <input id="Navn" type="text" required placeholder="Navn">
+          <br>
+          <input id="Alder" type="text" required placeholder="Alder">
+          <br>
+          <input id="Bostedskommune" type="text" required placeholder="Bostedskommune">
+          <br>
+          <input id="Hobby1" type="text" required placeholder="Favoritthobby">
+          <br>
+          <input id="Hobby2" type="text" required placeholder="Annen hobby">
+          <br>
+          <input id="Ommeg" type="text" required placeholder="Om meg">
+          <br>
+          <a href="hovedside.html"><button type="sumbit">Registrer ny bruker</button></a>
+        </form>
+      </section>
+
+    </main>
+    <script>
+    //Definerer variabler/navn for html elementene jeg trenger
+    //Referanser til html-elementer
+    const skjema = document.querySelector("#skjema")
+    const navn = document.querySelector("#Navn");
+    const telefonnummer = document.querySelector("#Telefonnummer");
+    const alder = document.querySelector("#Alder");
+    const bostedskommune = document.querySelector("#Bostedskommune");
+    const hobby1 = document.querySelector("#Hobby1");
+    const hobby2 = document.querySelector("#Hobby2");
+    const ommeg = document.querySelector("#Ommeg");
+    //Kobler til firebase
+    const db = firebase.database();
+    //Funskjon som genrerer/lager html, sier hva du skal lagre
+    const bruker = db.ref("bruker");
+
+    function registrerNy(evt){
+      evt.preventDefault();
+      //Lagrer informasjon som skal være primærnøkkel
+      const nokkel = telefonnummer.value;
+      //Lagrer all annen data til database, på Json format
+      const data = {
+        Navn: navn.value,
+        Alder: alder.value,
+        Bostedskommune: bostedskommune.value,
+        Hobby1: hobby1.value,
+        Hobby2: hobby2.value,
+        Ommeg: ommeg.value,
+      };
+      //Kobler til riktig sted i database, angir primærnøkkel
+      const nyBruker = bruker.child(nokkel);
+      //Ny data i databasen
+      nyBruker.set(data);
+    }
+    //Trykker vi på sumbit, så kjører vi denne funksjonen
+    skjema.addEventListener("submit",registrerNy)
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medlemmer</title>
+    <link rel="stylesheet" href="hovedside.css">
+
+    <!--Kobler til firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA3jJGNvrm6fIdF6Efu9zGkgmRXtpqcyX0",
+        authDomain: "uke-9-74865.firebaseapp.com",
+        databaseURL: "https://uke-9-74865.firebaseio.com",
+        projectId: "uke-9-74865",
+        storageBucket: "uke-9-74865.appspot.com",
+        messagingSenderId: "1018680974370"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <h1 class="overskrift">BLI KJENT FORUM</h1>
+      <nav>
+        <a href="hovedside.html">Medlemmer</a>
+        <a href="registrerNy.html">Registrer ny bruker</a>
+      </nav>
+
+      <div class="grid-container">
+        <div class="dropdown">
+          <span><b>SORTER ETTER:</b></span>
+          <div class="dropdown-innhold">
+            <div><a href="#" onclick="visNavn()">Sorter etter navn</a></div>
+            <div><a href="#" onclick="visLavtilHøy()">Sorter etter alder</a></div>
+            <div><a href="#" onclick="visBostedskommune()">Sorter etter kommune</a></div>
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <main>
+      <div class="knapper">
+      </div>
+      <div class="brukere">
+      </div>
+    </main>
+    <script>
+      //Referanser til html-elementer
+      const main = document.querySelector("main");
+      const brukere = document.querySelector(".brukere");
+      const knapper = document.querySelector(".knapper");
+      //Kobler til firebase
+      const db = firebase.database();
+      //Funksjon som genrerer/lager html,sier hva du skal lagre
+      const bruker = db.ref("bruker");
+
+      //Vises det som tas ut av databasen
+      function genererHTML(snap){
+        //Javascript-funksjon for å generere html
+        let bruker = snap.val();
+        let nokkel = snap.key;
+        //+ = Forhindrer at informasjonen skal overskrive flere ganger
+        brukere.innerHTML +=`
+          <!--javascript i html-->
+          <div>
+            <h1> ${bruker.Navn}</h1>
+            <p>Alder: ${bruker.Alder}</p>
+            <p>Bostedskommune: ${bruker.Bostedskommune}</p>
+            <a href=\"brukerDetaljer.html?id=${nokkel}\">Detaljer</a>
+          </div>
+        `
+      }
+      //On er en spørring (backend funksjonalitet). Sender resultatet til funksjonen genererHTML
+      function visAlle(){
+        brukere.innerHTML="";
+        bruker.on("child_added", genererHTML);
+      }
+      visAlle();
+
+      function visNavn(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Navn").on("child_added",genererHTML);
+      }
+
+      function visLavtilHøy(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Alder").startAt(0).endAt(65).on("child_added",genererHTML);
+      }
+
+      function visBostedskommune(){
+        brukere.innerHTML="";
+        knapper.innerHTML = `
+        <button class="knapp" onclick="Askerkommune()">Asker kommune</button>
+        <button class="knapp" onclick="Trondheimkommune()">Trondheim kommune</button>
+        <button class="knapp" onclick="Kristiansandkommune()">Kristiansand kommune</button>
+        <button class="knapp" onclick="Bergenkommune()">Bergen kommune</button>`
+        bruker.orderByChild("Bostedskommune").on("child_added",genererHTML);
+      }
+
+      function Askerkommune(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Bostedskommune").equalTo("Asker kommune").on("child_added",genererHTML);
+      }
+
+
+      function Trondheimkommune(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Bostedskommune").equalTo("Trondheim kommune").on("child_added",genererHTML);
+      }
+
+
+      function Kristiansandkommune(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Bostedskommune").equalTo("Kristiansand kommune").on("child_added",genererHTML);
+      }
+
+
+      function Bergenkommune(){
+        brukere.innerHTML="";
+        bruker.orderByChild("Bostedskommune").equalTo("Bergen kommune").on("child_added",genererHTML);
+      }
+
+    </script>
+
+  </body>
+</html>

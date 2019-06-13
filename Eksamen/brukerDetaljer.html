@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="brukerDetaljer.css">
+    <title>Detaljer om medlemmer</title>
+    <!--Kobler til firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA3jJGNvrm6fIdF6Efu9zGkgmRXtpqcyX0",
+        authDomain: "uke-9-74865.firebaseapp.com",
+        databaseURL: "https://uke-9-74865.firebaseio.com",
+        projectId: "uke-9-74865",
+        storageBucket: "uke-9-74865.appspot.com",
+        messagingSenderId: "1018680974370"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+
+  <body>
+    <header>
+      <h1 class="overskrift">BLI KJENT FORUM</h1>
+    </header>
+
+    <main>
+
+    </main>
+      <a href="hovedside.html"><button class="knapp1">Tilbake</button></a>
+      <a href="hovedside.html"><button onclick="slettBruker()" class="knapp2">Slett denne brukeren</button></a>
+
+    <script>
+      //Lagrer primærnøkkel(key-verdien) fra URL i en variabel vi kaller id
+      let url_string = window.location.href;
+      let url = new URL(url_string);
+      let id = url.searchParams.get("id");
+
+      main = document.querySelector("main");
+
+      //Variabler som kobler til database
+      const db = firebase.database();
+      //Referanse til valgt medlem
+      const brukeren = db.ref("bruker/" + id);
+
+      //Vises det som tas ut av databasen
+      function genererHTML(snap){
+      //Javascript-funksjon for å generere html
+        valgtBruker = snap.val();
+        nokkel = snap.key;
+
+        main.innerHTML = `
+        <!--javascript i html-->
+        <img class="bilde" src="bilder/pb.jpeg">
+        <h1 class="tekst">${valgtBruker.Navn}</h1>
+        <p class="tekst"><b>Telefonnummer:</b> ${nokkel}</p>
+        <p class="tekst"><b>Alder:</b> ${valgtBruker.Alder}</p>
+        <p class="tekst"><b>Bostedskommune:</b> ${valgtBruker.Bostedskommune}</p>
+        <p class="tekst"><b>Favoritthobby:</b> ${valgtBruker.Hobby1}</p>
+        <p class="tekst"><b>Annen hobby:</b> ${valgtBruker.Hobby2}</p>
+        <p class="tekst"><b>Om meg:</b> ${valgtBruker.Ommeg}</p>
+        `
+      }
+      //Value får ut bare den ene
+      brukeren.on("value", genererHTML);
+
+      function slettBruker(){
+        brukeren.remove();
+      }
+
+    </script>
+
+  </body>
+</html>

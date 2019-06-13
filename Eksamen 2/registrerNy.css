@@ -1,0 +1,43 @@
+body{
+  background-image: url("bilder/bakgrunn.jpeg");
+  margin: 5%;
+}
+.overskrift{
+  text-align: center;
+  margin-top: -3%;
+}
+h1{
+  text-align: center;
+}
+nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: black;
+  color: white;
+  margin-bottom: 0.5%;
+  padding: 1.5%;
+  font-size: 25px;
+  text-align: center;
+}
+nav a{
+  color: white;
+  text-decoration: none;
+}
+.registrer{
+  display: flex;
+  justify-content: center;
+}
+input{
+  margin: 10px;
+  font-size: 30px;
+  border: solid 5px;
+}
+button{
+  margin-top: 3%;
+  padding: 2%;
+  font-size: 140%;
+  border: solid 0.5px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
